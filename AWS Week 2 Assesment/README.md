@@ -68,13 +68,13 @@ SG-Private (sg-ccc333) — Inbound: TCP 80 from 10.0.2.0/24
 ![alt text](<Screenshots/Screenshot (186).png>)
 
 ## ✅ FINAL DELIVERABLES
-Deliverable	Example
-IAM Role ARN	arn:aws:iam::017820707918:role/EC2-S3-CloudWatch-Role
-EC2 Instance ID	i-054a6cd9a8c58ef09
-Web output	curl http://localhost → Hello World from EC2 Base Server
-AMI ID	ami-04962f096cb50dfa9
-EBS Volume ID	vol-0a2ef988648c21a03
-Snapshot ID	snap-024fea3419eaedde7
+Deliverable	Example.
+IAM Role ARN	arn:aws:iam::017820707918:role/EC2-S3-CloudWatch-Role.
+EC2 Instance ID	i-054a6cd9a8c58ef09.
+Web output	curl http://localhost → Hello World from EC2 Base Server.
+AMI ID	ami-04962f096cb50dfa9.
+EBS Volume ID	vol-0a2ef988648c21a03.
+Snapshot ID	snap-024fea3419eaedde7.
 
 
 ## Task 3:
@@ -88,3 +88,4 @@ NOTE: To serve a static website we must uncheck the public access of out S3 Buck
 
 ## Now creating an ALB in VPC-A public subnet with a listener on port 80.
 ![alt text](<Screenshots/Screenshot (190).png>)
+
