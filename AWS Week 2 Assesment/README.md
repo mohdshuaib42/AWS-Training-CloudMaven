@@ -180,3 +180,15 @@ SG-PrivateApp: HTTP 80 from VPC-A private CIDR / SG-Web
 
 ## installing aws vpn client so that we could connect to our vpn after downloading the client configuration file the add vpn configuration file and display name then we will connect
 ![alt text](<Screenshots/Screenshot (219).png>)
+
+## As we can after importing the oppn config file we have successfully connected 
+![alt text](<Screenshots/Screenshot (220).png>)
+
+## Checking the connection details 
+![alt text](<Screenshots/Screenshot (221).png>)
+
+## In our CMD WE SEE HERE WE ARE CONNECTED TO AWS CLIENT VPN 
+![alt text](<Screenshots/Screenshot (222).png>)
+
+
+## Thank you Manish sir for these two great AWS Weeks 
