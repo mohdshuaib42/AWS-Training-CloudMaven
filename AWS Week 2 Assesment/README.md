@@ -82,10 +82,11 @@ Snapshot ID	snap-024fea3419eaedde7.
 ![alt text](<Screenshots/Screenshot (188).png>)
 
 ## As we see here we have hosted our static page through AWS S3
-NOTE: To serve a static website we must uncheck the public access of out S3 Bucket
+NOTE: To serve a static website we must uncheck the block public access of out S3 Bucket
 ![alt text](<Screenshots/Screenshot (189).png>)
 
 
 ## Now creating an ALB in VPC-A public subnet with a listener on port 80.
 ![alt text](<Screenshots/Screenshot (190).png>)
+
 
