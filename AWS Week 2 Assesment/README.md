@@ -68,13 +68,13 @@ SG-Private (sg-ccc333) — Inbound: TCP 80 from 10.0.2.0/24
 ![alt text](<Screenshots/Screenshot (186).png>)
 
 ## ✅ FINAL DELIVERABLES
-Deliverable	Example.
-IAM Role ARN	arn:aws:iam::017820707918:role/EC2-S3-CloudWatch-Role.
-EC2 Instance ID	i-054a6cd9a8c58ef09.
-Web output	curl http://localhost → Hello World from EC2 Base Server.
-AMI ID	ami-04962f096cb50dfa9.
-EBS Volume ID	vol-0a2ef988648c21a03.
-Snapshot ID	snap-024fea3419eaedde7.
+Deliverable	Example
+IAM Role ARN	arn:aws:iam::017820707918:role/EC2-S3-CloudWatch-Role
+EC2 Instance ID	i-054a6cd9a8c58ef09
+Web output	curl http://localhost → Hello World from EC2 Base Server
+AMI ID	ami-04962f096cb50dfa9
+EBS Volume ID	vol-0a2ef988648c21a03
+Snapshot ID	snap-024fea3419eaedde7
 
 
 ## Task 3:
@@ -82,7 +82,7 @@ Snapshot ID	snap-024fea3419eaedde7.
 ![alt text](<Screenshots/Screenshot (188).png>)
 
 ## As we see here we have hosted our static page through AWS S3
-NOTE: To serve a static website we must uncheck the block public access of out S3 Bucket
+NOTE: To serve a static website we must uncheck the public access of out S3 Bucket
 ![alt text](<Screenshots/Screenshot (189).png>)
 
 
@@ -90,3 +90,93 @@ NOTE: To serve a static website we must uncheck the block public access of out S
 ![alt text](<Screenshots/Screenshot (190).png>)
 
 
+## Created a Target Group 
+![alt text](<Screenshots/Screenshot (191).png>)
+
+
+## Here we are creating the ASG 
+![alt text](<Screenshots/Screenshot (192).png>)
+
+## As we can see the page using the ALB DNS and also showing the s3 logo
+![alt text](<Screenshots/Screenshot (194).png>)
+## Deliverables
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Statement1",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::test-portfolio-bucket42/*"
+        }
+    ]
+}
+```
+Item	Example / What to Include
+S3 Bucket Name	test-portfolio-bucket42 
+ALB DNS Name	http://public-app-alb-1022207104.eu-north-1.elb.amazonaws.com/
+Target Group ARN	arn:aws:elasticloadbalancing:eu-north-1:017820707918:targetgroup/tg-public-app/3671b3e184f39a92
+ASG Name	asg-public-app
+Desired Capacity 1	
+
+## Task 4
+## Here we are creating a DB instance which is a private app db
+![alt text](<Screenshots/Screenshot (195).png>)
+
+## We have ran a user data script when we were launching our ec2 from the base app image from task 2 in that script we installed httpd and gave the commad to connect to our private app db if it would show the html page and as we can see here we tested it using curl.
+![alt text](<Screenshots/Screenshot (196).png>)
+
+## And also mounted the efs 
+![alt text](<Screenshots/Screenshot (197).png>)
+![alt text](<Screenshots/Screenshot (198).png>)
+
+## 🧾 Deliverables Summary
+Item	Example / What to Include
+RDS Endpoint	private-app-db.cp4688a0wfxo.eu-north-1.rds.amazonaws.com
+RDS Instance Identifier	private-app-db
+EFS ID	fs-0190295f1de91d477
+Evidence of Mount yes df -h shows /mnt/efs
+Private App EC2 Private IP	10-1-1-42
+Proof of Access	curl 10-1-1-42
+Private App RDS & EFS mounted!
+
+SG Rules	
+SG-RDS: MySQL 3306 from SG-PrivateApp
+SG-EFS: NFS 2049 from SG-PrivateApp
+SG-PrivateApp: HTTP 80 from VPC-A private CIDR / SG-Web
+
+
+## Task 5:
+## First we are creating the VPC 
+![alt text](<Screenshots/Screenshot (203).png>)
+
+## Downloading AWS Client VPN FOR DESKTOP 
+![alt text](<Screenshots/Screenshot (204).png>)
+
+## Genrating keys and certificates for both client and server
+![alt text](<Screenshots/Screenshot (206).png>)
+![alt text](<Screenshots/Screenshot (207).png>)
+![alt text](<Screenshots/Screenshot (208).png>)
+
+## Importing certificates in ACM for server
+![alt text](<Screenshots/Screenshot (209).png>)
+
+## Importing certificates in ACM for client
+![alt text](<Screenshots/Screenshot (211).png>)
+
+## As we see here both for server and the client certs have been issued
+![alt text](<Screenshots/Screenshot (212).png>)
+
+# Creating Client VPN Endpoint
+![alt text](<Screenshots/Screenshot (215).png>)
+
+## Associating with our target network which is our VPC which we created in the first step
+![alt text](<Screenshots/Screenshot (217).png>)
+
+# now adding authorization rules
+![alt text](<Screenshots/Screenshot (218).png>)
+
+## installing aws vpn client so that we could connect to our vpn after downloading the client configuration file the add vpn configuration file and display name then we will connect
+![alt text](<Screenshots/Screenshot (219).png>)
